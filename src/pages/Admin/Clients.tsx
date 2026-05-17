@@ -366,7 +366,7 @@ const Clients = ({ records, serviceOptions, statusOptions, summary, serviceSumma
                     <Input id="credential_notes" value={data.credential_notes} onChange={(event) => setData("credential_notes", event.target.value)} placeholder="cPanel, domain, system admin..." />
                   </div>
                 </div>
-                <p className="mt-3 text-xs text-muted-foreground">Credential details are encrypted in the database and hidden in the interface until revealed.</p>
+                <p className="mt-3 text-xs text-muted-foreground">Credential details are shown only to users with MYT Office access.</p>
               </div>
             )}
 

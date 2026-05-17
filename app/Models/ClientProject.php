@@ -41,9 +41,6 @@ class ClientProject extends Model
             'total_price' => 'decimal:2',
             'amount_paid' => 'decimal:2',
             'expenses' => 'decimal:2',
-            'credential_username' => 'encrypted',
-            'credential_password' => 'encrypted',
-            'credential_notes' => 'encrypted',
         ];
     }
 
