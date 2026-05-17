@@ -13,7 +13,9 @@ class EnsureMytOfficeAccess
         $user = $request->user();
 
         if (! $user?->canAccessMytOffice()) {
-            abort(403);
+            return redirect()
+                ->route('admin.dashboard')
+                ->with('error', 'You do not have access to MYT Office.');
         }
 
         return $next($request);

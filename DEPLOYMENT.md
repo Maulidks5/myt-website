@@ -35,6 +35,14 @@ chmod +x deploy/deploy.sh
 ./deploy/deploy.sh
 ```
 
+For cPanel, keep these production session values unless you specifically need shared subdomain cookies:
+
+```env
+SESSION_DRIVER=file
+SESSION_DOMAIN=null
+CACHE_STORE=file
+```
+
 If `rsync` is not available on the server, manually copy everything inside `public/` into `/home/myt/public_html`, then copy:
 
 ```bash
@@ -49,6 +57,13 @@ After pushing changes to GitHub:
 ```bash
 cd /home/myt/myt-website
 ./deploy/deploy.sh
+```
+
+If login starts redirecting back to the login page after refresh, clear cached config and confirm the `.env` values above:
+
+```bash
+php artisan optimize:clear
+php artisan config:cache
 ```
 
 ## Important Notes

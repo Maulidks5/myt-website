@@ -9,6 +9,8 @@ cd "$APP_DIR"
 
 git pull origin "$BRANCH"
 
+php artisan optimize:clear
+
 composer install --no-dev --optimize-autoloader
 
 if command -v npm >/dev/null 2>&1; then
@@ -18,6 +20,7 @@ fi
 
 php artisan migrate --force
 php artisan storage:link || true
+php artisan optimize:clear
 php artisan config:cache
 php artisan route:cache
 php artisan view:cache
