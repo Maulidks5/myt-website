@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://myt.co.tz/sitemap.xml

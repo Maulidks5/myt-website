@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 215 60% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 60% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 60% 12%;
+
+    --primary: 185 84% 44%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 180 90% 55%;
+
+    --secondary: 217 60% 14%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 210 30% 96%;
+    --muted-foreground: 215 20% 45%;
+
+    --accent: 185 84% 94%;
+    --accent-foreground: 217 60% 14%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 215 25% 90%;
+    --input: 215 25% 90%;
+    --ring: 185 84% 44%;
+
+    --radius: 1rem;
+
+    --gradient-primary: linear-gradient(135deg, hsl(185 84% 44%), hsl(180 90% 55%));
+    --gradient-hero: linear-gradient(135deg, hsl(217 60% 14%) 0%, hsl(215 70% 8%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(210 30% 98%));
+    --gradient-mesh: radial-gradient(at 20% 30%, hsl(185 84% 44% / 0.15) 0px, transparent 50%),
+                     radial-gradient(at 80% 70%, hsl(180 90% 55% / 0.12) 0px, transparent 50%);
+
+    --shadow-soft: 0 4px 18px -6px hsl(217 60% 14% / 0.08);
+    --shadow-elegant: 0 18px 44px -18px hsl(217 60% 14% / 0.18);
+    --shadow-glow: 0 8px 24px -14px hsl(185 84% 44% / 0.34);
+
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    overflow-x: hidden;
+  }
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+  img, video, canvas, svg {
+    max-width: 100%;
+  }
+}
+
+@layer utilities {
+  .gradient-primary { background: var(--gradient-primary); }
+  .gradient-hero { background: var(--gradient-hero); }
+  .gradient-card { background: var(--gradient-card); }
+  .gradient-mesh { background-image: var(--gradient-mesh); }
+  .text-gradient {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .shadow-soft { box-shadow: var(--shadow-soft); }
+  .shadow-elegant { box-shadow: var(--shadow-elegant); }
+  .shadow-glow { box-shadow: var(--shadow-glow); }
+  .transition-smooth { transition: var(--transition-smooth); }
+  .hover-lift {
+    @apply transition-smooth;
+  }
+  .hover-lift:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-elegant);
+  }
+}
